@@ -15,4 +15,11 @@ $_ENV['APP_DEBUG'] = 'true'; // FORCE DEBUG MODE
 putenv('VIEW_COMPILED_PATH=/tmp');
 putenv('CACHE_DRIVER=array');
 
+if ($_SERVER['REQUEST_URI'] === '/ping') {
+    http_response_code(200);
+    header('Content-Type: text/plain');
+    echo "PHP Serverless is Working! (VERCEL-PHP@0.9.0)";
+    exit;
+}
+
 require __DIR__ . '/../public/index.php';
