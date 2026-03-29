@@ -129,7 +129,7 @@
         /* ─── FOOTER ─── */
         .footer { background: var(--dark); color: rgba(255,255,255,.5); padding: 40px 0 24px; }
         .footer-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; margin-bottom: 32px; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 40px; margin-bottom: 32px; }
         .footer-brand h4 { color: #fff; font-size: 16px; font-weight: 800; margin-bottom: 8px; }
         .footer-brand p { font-size: 12.5px; line-height: 1.6; }
         .footer h5 { color: #fff; font-size: 13px; font-weight: 700; margin-bottom: 12px; }
@@ -373,15 +373,6 @@
                     <a href="#lokasi">Lokasi Desa</a>
                     <a href="#pengumuman">Pengumuman</a>
                     <a href="{{ route('laporan.create') }}">Buat Laporan</a>
-                </div>
-            </div>
-            <div>
-                <h5>Keamanan</h5>
-                <div class="footer-links">
-                    <a href="#"><i class="bi bi-shield-lock"></i> Argon2id Hashing</a>
-                    <a href="#"><i class="bi bi-fingerprint"></i> HMAC-SHA256</a>
-                    <a href="#"><i class="bi bi-file-earmark-lock2"></i> AES-256-CBC</a>
-                    <a href="#"><i class="bi bi-patch-check"></i> SHA-256 Verification</a>
                 </div>
             </div>
         </div>
