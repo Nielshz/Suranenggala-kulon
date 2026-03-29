@@ -10,6 +10,7 @@ return Application::configure(basePath: dirname(__DIR__))
         commands: __DIR__.'/../routes/console.php',
         health: '/up',
     )
+    ->useStoragePath(isset($_ENV['VERCEL']) ? '/tmp' : __DIR__.'/../storage')
     ->withMiddleware(function (Middleware $middleware): void {
         //
     })
