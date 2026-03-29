@@ -1,0 +1,6 @@
+NIK,Nama,Tempat Lahir,Tanggal Lahir,Jenis Kelamin,Alamat KTP,Alamat Domisili,Desa/Kelurahan,Kecamatan,Kabupaten/Kota,Provinsi,Negara,RT,RW,Agama,Pendidikan Terakhir,Pekerjaan,Status Perkawinan,Status Tinggal
+3209876543000001,Budi Santoso,Cirebon,1980-05-15,L,Jl. Kapetakan No. 1,Jl. Kapetakan No. 1,Suranenggala Kulon,Suranenggala,Cirebon,Jawa Barat,Indonesia,001,001,Islam,S1,Wiraswasta,Kawin,Tetap
+3209876543000002,Siti Aminah,Indramayu,1985-08-20,P,Blok Kemis,Blok Kemis,Suranenggala Kulon,Suranenggala,Cirebon,Jawa Barat,Indonesia,002,001,Islam,SMA,Ibu Rumah Tangga,Kawin,Tetap
+3209876543000003,Joko Widodo,Solo,1975-10-10,L,Blok Wage,Blok Wage,Suranenggala Kulon,Suranenggala,Cirebon,Jawa Barat,Indonesia,003,002,Islam,S1,Pegawai Negeri,Kawin,Tetap
+3209876543000004,Dewi Lestari,Bandung,1992-02-14,P,Blok Pon,Blok Pon,Suranenggala Kulon,Suranenggala,Cirebon,Jawa Barat,Indonesia,001,003,Kristen,D3,Karyawan Swasta,Belum Kawin,Tetap
+3209876543000005,Ahmad Fauzan,Cirebon,2001-11-25,L,Blok Pahing,Blok Pahing,Suranenggala Kulon,Suranenggala,Cirebon,Jawa Barat,Indonesia,004,002,Islam,SMA,Mahasiswa,Belum Kawin,Tidak Tetap
