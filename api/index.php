@@ -5,6 +5,9 @@
  * Memaksa Laravel menggunakan /tmp folder karena server Vercel bersifat Read-Only
  */
 
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+
 $_ENV['VIEW_COMPILED_PATH'] = '/tmp';
 $_ENV['SESSION_DRIVER'] = 'cookie';
 $_ENV['LOG_CHANNEL'] = 'stderr';
