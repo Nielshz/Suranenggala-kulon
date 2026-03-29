@@ -11,6 +11,7 @@ use App\Http\Controllers\GaleriController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\PengumumanController;
 use App\Http\Controllers\LaporanController;
+use Illuminate\Support\Facades\Artisan;
 
 // ═══════════════════════════════════
 //  PUBLIC ROUTES (no auth required)
@@ -20,6 +21,16 @@ Route::get('/', [LandingController::class, 'index'])->name('landing');
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+Route::get('/install-database-sekarang', function () {
+    try {
+        Artisan::call('migrate:fresh', ['--force' => true, '--seed' => true]);
+        return response('✅ DATABASE ONLINE (SUPABASE) SUKSES DI-INSTALL & AKUN ADMIN TELAH DIBUAT! SILAKAN LOGIN.', 200)
+                  ->header('Content-Type', 'text/plain');
+    } catch (\Exception $e) {
+        return response('Gagal: ' . $e->getMessage(), 500)->header('Content-Type', 'text/plain');
+    }
+});
 
 // Public: Laporan warga
 Route::get('/laporan/buat', [LaporanController::class, 'create'])->name('laporan.create');
