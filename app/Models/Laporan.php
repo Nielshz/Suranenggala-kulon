@@ -28,7 +28,7 @@ class Laporan extends Model
      */
     public function getWaLinkAttribute(): string
     {
-        $adminPhone = config('app.admin_wa', '6281234567890');
+        $adminPhone = env('ADMIN_WA_NUMBER', '6283178419134');
         $text = urlencode(
             "📋 *LAPORAN WARGA BARU*\n\n"
             . "Dari: {$this->nama_pelapor}\n"

@@ -70,7 +70,7 @@ return [
     'nik_hmac_secret' => env('NIK_HMAC_SECRET', 'change-this-in-production'),
 
     // WhatsApp admin number for laporan warga integration
-    'admin_wa' => env('ADMIN_WA_NUMBER', '6281234567890'),
+    'admin_wa' => env('ADMIN_WA_NUMBER', '6283178419134'),
 
     /*
     |--------------------------------------------------------------------------
