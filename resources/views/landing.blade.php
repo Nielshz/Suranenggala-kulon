@@ -185,6 +185,7 @@
             <a href="#tentang" class="nav-link">Tentang</a>
             <a href="#lokasi" class="nav-link">Lokasi</a>
             <a href="#pengumuman" class="nav-link">Pengumuman</a>
+            <a href="{{ route('login') }}" class="nav-link" style="color:var(--accent)"><i class="bi bi-box-arrow-in-right"></i> Login</a>
             <a href="{{ route('laporan.create') }}" class="nav-link nav-cta"><i class="bi bi-send"></i> Lapor</a>
         </div>
     </div>
