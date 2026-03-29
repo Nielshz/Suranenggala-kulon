@@ -41,4 +41,14 @@ if ($_SERVER['REQUEST_URI'] === '/ping') {
     exit;
 }
 
-require __DIR__ . '/../public/index.php';
+try {
+    require __DIR__ . '/../public/index.php';
+} catch (\Throwable $e) {
+    http_response_code(200);
+    header('Content-Type: text/plain');
+    echo "FATAL VERCEL ERROR CAUGHT BY WRAPPER:\n";
+    echo "Error: " . $e->getMessage() . "\n";
+    echo "File: " . $e->getFile() . " on line " . $e->getLine() . "\n";
+    echo "Trace:\n" . $e->getTraceAsString() . "\n";
+    exit;
+}
