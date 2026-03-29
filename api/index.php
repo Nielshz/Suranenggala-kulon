@@ -2,6 +2,16 @@
 
 /**
  * Vercel Serverless Function entry point
+ * Memaksa Laravel menggunakan /tmp folder karena server Vercel bersifat Read-Only
  */
+
+$_ENV['VIEW_COMPILED_PATH'] = '/tmp';
+$_ENV['SESSION_DRIVER'] = 'cookie';
+$_ENV['LOG_CHANNEL'] = 'stderr';
+$_ENV['APP_STORAGE'] = '/tmp';
+
+// Memaksa cache framework ke /tmp
+putenv('VIEW_COMPILED_PATH=/tmp');
+putenv('CACHE_DRIVER=array');
 
 require __DIR__ . '/../public/index.php';
