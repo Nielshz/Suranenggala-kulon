@@ -5,12 +5,6 @@
  * Memaksa Laravel menggunakan /tmp folder karena server Vercel bersifat Read-Only
  */
 
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
-
-$_ENV['APP_STORAGE'] = '/tmp';
-$_ENV['APP_DEBUG'] = 'true'; // FORCE DEBUG MODE
-
 // CACHE OVERRIDES FOR VERCEL READ-ONLY FS
 $_ENV['APP_SERVICES_CACHE'] = '/tmp/services.php';
 $_ENV['APP_PACKAGES_CACHE'] = '/tmp/packages.php';
@@ -25,11 +19,11 @@ putenv('APP_ROUTES_CACHE=/tmp/routes.php');
 putenv('APP_EVENTS_CACHE=/tmp/events.php');
 
 putenv('APP_STORAGE=/tmp');
+// Memaksa logging ke stderr agar Vercel dapat membaca Log tanpa menulis ke file
 putenv('LOG_CHANNEL=stderr');
 putenv('CACHE_DRIVER=array');
 putenv('SESSION_DRIVER=cookie');
 putenv('VIEW_COMPILED_PATH=/tmp/framework/views');
-$_ENV['APP_DEBUG'] = 'true'; // FORCE DEBUG MODE
 
 // Membuat struktur direktori wajib untuk Laravel di dalam folder sementara Vercel
 $directories = [
@@ -47,25 +41,4 @@ foreach ($directories as $dir) {
     }
 }
 
-// Memaksa cache framework ke /tmp
-putenv('VIEW_COMPILED_PATH=/tmp/framework/views');
-putenv('CACHE_DRIVER=array');
-
-if ($_SERVER['REQUEST_URI'] === '/ping') {
-    http_response_code(200);
-    header('Content-Type: text/plain');
-    echo "PHP Serverless is Working! (VERCEL-PHP@0.9.0)";
-    exit;
-}
-
-try {
-    require __DIR__ . '/../public/index.php';
-} catch (\Throwable $e) {
-    http_response_code(200);
-    header('Content-Type: text/plain');
-    echo "FATAL VERCEL ERROR CAUGHT BY WRAPPER:\n";
-    echo "Error: " . $e->getMessage() . "\n";
-    echo "File: " . $e->getFile() . " on line " . $e->getLine() . "\n";
-    echo "Trace:\n" . $e->getTraceAsString() . "\n";
-    exit;
-}
+require __DIR__ . '/../public/index.php';
