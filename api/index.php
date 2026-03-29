@@ -8,10 +8,14 @@
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
-$_ENV['VIEW_COMPILED_PATH'] = '/tmp';
-$_ENV['SESSION_DRIVER'] = 'cookie';
-$_ENV['LOG_CHANNEL'] = 'stderr';
 $_ENV['APP_STORAGE'] = '/tmp';
+$_ENV['APP_DEBUG'] = 'true'; // FORCE DEBUG MODE
+
+putenv('APP_STORAGE=/tmp');
+putenv('LOG_CHANNEL=stderr');
+putenv('CACHE_DRIVER=array');
+putenv('SESSION_DRIVER=cookie');
+putenv('VIEW_COMPILED_PATH=/tmp/framework/views');
 $_ENV['APP_DEBUG'] = 'true'; // FORCE DEBUG MODE
 
 // Membuat struktur direktori wajib untuk Laravel di dalam folder sementara Vercel
