@@ -14,8 +14,24 @@ $_ENV['LOG_CHANNEL'] = 'stderr';
 $_ENV['APP_STORAGE'] = '/tmp';
 $_ENV['APP_DEBUG'] = 'true'; // FORCE DEBUG MODE
 
+// Membuat struktur direktori wajib untuk Laravel di dalam folder sementara Vercel
+$directories = [
+    '/tmp/framework/views',
+    '/tmp/framework/cache',
+    '/tmp/framework/cache/data',
+    '/tmp/framework/sessions',
+    '/tmp/logs',
+    '/tmp/app/public',
+];
+
+foreach ($directories as $dir) {
+    if (!is_dir($dir)) {
+        @mkdir($dir, 0777, true);
+    }
+}
+
 // Memaksa cache framework ke /tmp
-putenv('VIEW_COMPILED_PATH=/tmp');
+putenv('VIEW_COMPILED_PATH=/tmp/framework/views');
 putenv('CACHE_DRIVER=array');
 
 if ($_SERVER['REQUEST_URI'] === '/ping') {
